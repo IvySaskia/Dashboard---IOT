@@ -248,10 +248,10 @@
               <div class="box p-a">
                 <ul class="list-group">
                   <li class="list-group-item primary justify-content-center">CULTIVOS</li>
-                  <li class="list-group-item">c</li>
-                  <li class="list-group-item">Morbi leo risus</li>
-                  <li class="list-group-item">Porta ac consectetur ac</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
+                  <li class="list-group-item">Cultivo</li>
+                  <li class="list-group-item">Cultivo</li>
+                  <li class="list-group-item">Cultivo</li>
+                  <li class="list-group-item">Cultivo</li>
                 </ul>
               </div>
             </div>
