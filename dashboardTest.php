@@ -7,10 +7,6 @@
 //  die();
 //}
 
-  if (isset($_REQUEST['analyze'])) {
-    echo '<script>alert("Your analyze process")</script>';
-  }
-
 ?>
 
 
@@ -231,39 +227,27 @@
                 </div>
               </div>
             </div>
-          </div>
-
+			
+			<!-- SWItCH1 y 2 -->
           <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              
-              <form method="post">
-                  <button type="submit" name="analyze" value="analyze" class="btn btn-primary">Analizar</button>
-              </form>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-4">
+            <!-- SWItCH1 -->
+            <div class="col-xs-6 col-sm-6">
               <div class="box p-a">
-                <ul class="list-group">
-                  <li class="list-group-item primary justify-content-center">CULTIVOS</li>
-                  <li class="list-group-item">c</li>
-                  <li class="list-group-item">Morbi leo risus</li>
-                  <li class="list-group-item">Porta ac consectetur ac</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
+                <div class="form-group row">
+                  <label class="col-sm-6 form-control-label">Analizar datos actuales:</label>
+                  <div class="col-sm-10">
+                    <!--<label class="ui-switch ui-switch-md info m-t-xs">-->
+					  <button type="button" class="btn btn-danger">Analizar</button>
+                      <!--<input id="input_led1" onchange="process_led1()"  type="checkbox" >-->
+                      <i></i>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
-
-            <div>
-              <div class="box p-a">
-                <img src="https://media.istockphoto.com/id/1184401187/photo/internet-of-things-wireless-communication-network-abstract-image-visual.jpg?s=612x612&w=0&k=20&c=Thb4RuYqcfOHMepqOfazEhU3ZIp5J_eTerZ5GxxreOQ=" class="img-fluid" alt="Responsive image">
-              </div>
-            </div>
-            
           </div>
 
+          
 
         <!-- ############ PAGE END-->
 

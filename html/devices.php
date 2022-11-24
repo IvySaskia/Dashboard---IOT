@@ -1,15 +1,11 @@
 <?php
-//session_start();
-//$logged = $_SESSION['logged'];
+session_start();
+$logged = $_SESSION['logged'];
 
-//if(!$logged){
-//  echo "Ingreso no autorizado";
-//  die();
-//}
-
-  if (isset($_REQUEST['analyze'])) {
-    echo '<script>alert("Your analyze process")</script>';
-  }
+if(!$logged){
+  echo "Ingreso no autorizado";
+  die();
+}
 
 ?>
 
@@ -19,7 +15,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <title>IoT Univalle</title>
+  <title>IoT Masterclass</title>
   <meta name="description" content="Admin, Dashboard, Bootstrap, Bootstrap 4, Angular, AngularJS" />
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimal-ui" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -38,6 +34,7 @@
   <link rel="stylesheet" href="assets/glyphicons/glyphicons.css" type="text/css" />
   <link rel="stylesheet" href="assets/font-awesome/css/font-awesome.min.css" type="text/css" />
   <link rel="stylesheet" href="assets/material-design-icons/material-design-icons.css" type="text/css" />
+
   <link rel="stylesheet" href="assets/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
   <!-- build:css assets/styles/app.min.css -->
   <link rel="stylesheet" href="assets/styles/app.css" type="text/css" />
@@ -72,7 +69,7 @@
               </li>
 
               <li>
-                <a href="dashboard.php" >
+                <a href="dashboard.html" >
                   <span class="nav-icon">
                     <i class="fa fa-building-o"></i>
                   </span>
@@ -81,7 +78,7 @@
               </li>
 
               <li>
-                <a href="devices.php" >
+                <a href="dashboard.html" >
                   <span class="nav-icon">
                     <i class="fa fa-cogs"></i>
                   </span>
@@ -98,10 +95,10 @@
           <div class="nav-fold">
             <a href="profile.html">
               <span class="pull-left">
-                <img src="assets/images/a1.jpg" alt="..." class="w-40 img-circle">
+                <img src="assets/images/a0.jpg" alt="..." class="w-40 img-circle">
               </span>
               <span class="clear hidden-folded p-x">
-                <span class="block _500">Abdel Rocabado</span>
+                <span class="block _500">Jean Reyes</span>
                 <small class="block text-muted"><i class="fa fa-circle text-success m-r-sm"></i>online</small>
               </span>
             </a>
@@ -196,12 +193,12 @@
               <div class="box p-a">
                 <div class="pull-left m-r">
                   <span class="w-48 rounded  accent">
-                    <i class="fa fa-thermometer-full" aria-hidden="true"></i>
+                    <i class="fa fa-sun-o"></i>
                   </span>
                 </div>
                 <div class="clear">
-                  <h4 class="m-0 text-lg _300"><b id="display_temp1">-- </b><span class="text-sm"> C</span></h4>
-                  <small class="text-muted">Temperatura en °C</small>
+                  <h4 class="m-0 text-lg _300"><a href="">12 <span class="text-sm"> C</span></a></h4>
+                  <small class="text-muted">Promedio: 17 C</small>
                 </div>
               </div>
             </div>
@@ -209,12 +206,12 @@
               <div class="box p-a">
                 <div class="pull-left m-r">
                   <span class="w-48 rounded primary">
-                    <i class="fa fa-sun-o" aria-hidden="true"></i>
+                    <i class="fa fa-desktop"></i>
                   </span>
                 </div>
                 <div class="clear">
-                  <h4 class="m-0 text-lg _300"><b id="display_temp2">-- </b><span class="text-sm"> %</span></h4>
-                  <small class="text-muted">Humedad en %</small>
+                  <h4 class="m-0 text-lg _300"><a href="">40 <span class="text-sm"> C</span></a></h4>
+                  <small class="text-muted">Temp Pico: 70 C</small>
                 </div>
               </div>
             </div>
@@ -222,48 +219,66 @@
               <div class="box p-a">
                 <div class="pull-left m-r">
                   <span class="w-48 rounded warn">
-                    <i class="fa fa-flask" aria-hidden="true"></i>
+                    <i class="fa fa-plug"></i>
                   </span>
                 </div>
                 <div class="clear">
-                  <h4 class="m-0 text-lg _300"><b id="display_volt">-- </b><span class="text-sm"> %</span></h4>
-                  <small class="text-muted">Humedad de Suelo en %</small>
+                  <h4 class="m-0 text-lg _300"><a href="">5.03 <span class="text-sm"> V</span></a></h4>
+                  <small class="text-muted">Tensión Pico: 5.8 V</small>
                 </div>
               </div>
             </div>
           </div>
 
+          <!-- SWItCH1 y 2 -->
           <div class="row">
-            <div class="col-xs-12 col-sm-4">
-              
-              <form method="post">
-                  <button type="submit" name="analyze" value="analyze" class="btn btn-primary">Analizar</button>
-              </form>
-
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-12 col-sm-4">
+            <!-- SWItCH1 -->
+            <div class="col-xs-12 col-sm-6">
               <div class="box p-a">
-                <ul class="list-group">
-                  <li class="list-group-item primary justify-content-center">CULTIVOS</li>
-                  <li class="list-group-item">c</li>
-                  <li class="list-group-item">Morbi leo risus</li>
-                  <li class="list-group-item">Porta ac consectetur ac</li>
-                  <li class="list-group-item">Vestibulum at eros</li>
-                </ul>
+                <div class="form-group row">
+                  <label class="col-sm-2 form-control-label">LED</label>
+                  <div class="col-sm-10">
+                    <label class="ui-switch ui-switch-md info m-t-xs">
+                      <input type="checkbox" checked="" class="has-value">
+                      <i></i>
+                    </label>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <div>
-              <div class="box p-a">
-                <img src="https://media.istockphoto.com/id/1184401187/photo/internet-of-things-wireless-communication-network-abstract-image-visual.jpg?s=612x612&w=0&k=20&c=Thb4RuYqcfOHMepqOfazEhU3ZIp5J_eTerZ5GxxreOQ=" class="img-fluid" alt="Responsive image">
+            <!-- SWItCH2 -->
+              <div class="col-xs-12 col-sm-6">
+                <div class="box p-a">
+                  <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">LED2</label>
+                    <div class="col-sm-10">
+                      <label class="ui-switch ui-switch-md info m-t-xs">
+                        <input type="checkbox" checked="" class="has-value">
+                        <i></i>
+                      </label>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            
           </div>
 
+          <!-- DISPOSITIVOS -->
+          <div class="row">
+            <div class="col-xs-12 col-sm-12">
+              <div class="box p-a">
+                <form class="php/add_device.php" action="index.html" method="post">
+                  <input name="alias" type="text" class="md-input" required >
+                  <label>Alias</label>
+                  <input name="serie" type="text" class="md-input" required >
+                  <label>Serie</label>
+                </form>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
 
         <!-- ############ PAGE END-->
 
@@ -434,173 +449,9 @@ class="p-a col-sm-6 lter">
 
 <script src="html/scripts/app.js"></script>
 
-<script src="https://kit.fontawesome.com/e2eea5f890.js" crossorigin="anonymous"></script>
-
 <!-- ajax -->
 <script src="libs/jquery/jquery-pjax/jquery.pjax.js"></script>
 <script src="html/scripts/ajax.js"></script>
-
-<script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
-<script type="text/javascript">
-
-/*
-******************************
-****** PROCESOS  *************
-******************************
-*/
-
-
-function update_values(temp1, temp2, volts){
-  $("#display_temp1").html(temp1);
-  $("#display_temp2").html(temp2);
-  $("#display_volt").html(volts);
-}
-
-function process_msg(topic, message){
-  // ej: "10,11,12"
-  if (topic == "values"){
-    var msg = message.toString(); //toString()
-    var sp = msg.split(",");
-    var temp1 = sp[0];
-    var temp2 = sp[1];
-    var volts = sp[2];
-    update_values(temp1,temp2,volts);
-	/*if(temp1>=28)
-	{
-		ledOverTemp(temp1);
-	}
-	if(temp1<28)
-	{
-		ledUnderTemp(temp1);
-	}*/
-  }
-}
-
-function ledOverTemp(){
-	
-	console.log("Encendido");
-
-    client.publish('led1', 'on', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-})
-}
-function ledUnderTemp(){
-	console.log("Apagado");
-    client.publish('led1', 'off', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-}
-
-
-//process_msg("values","10,11,12");
-
-function process_led1(){
-  if ($('#input_led1').is(":checked")){
-    console.log("Encendido");
-
-    client.publish('led1', 'on', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-  }else{
-    console.log("Apagado");
-    client.publish('led1', 'off', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-  }
-}
-
-function process_led2(){
-  if ($('#input_led2').is(":checked")){
-    console.log("Encendido");
-
-    client.publish('led2', 'on', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-  }else{
-    console.log("Apagado");
-    client.publish('led2', 'off', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-  }
-}
-
-//Function to make the query from data base
-function get_Data(){
-	
-}
-
-
-
-
-
-
-
-/*
-******************************
-****** CONEXION  *************
-******************************
-*/
-
-// connect options
-const options = {
-      connectTimeout: 4000,
-
-      // Authentication
-      clientId: 'iotmc',
-      username: 'web_client',
-      password: '123456',
-
-      keepalive: 60,
-      clean: true,
-}
-
-var connected = false;
-
-// WebSocket connect url
-const WebSocket_URL = 'wss://proyectoiot.ga:8094/mqtt' //wss es cunado es seguro
-
-
-const client = mqtt.connect(WebSocket_URL, options)
-
-
-client.on('connect', () => {
-    console.log('Mqtt conectado por WS! Exito!')
-
-    client.subscribe('values', { qos: 0 }, (error) => {
-      if (!error) {
-        console.log('Suscripción exitosa!')
-      }else{
-        console.log('Suscripción fallida!')
-      }
-    })
-
-    // publish(topic, payload, options/callback)
-    client.publish('fabrica', 'esto es un verdadero éxito', (error) => {
-      console.log(error || 'Mensaje enviado!!!')
-    })
-})
-
-client.on('message', (topic, message) => {
-  console.log('Mensaje recibido bajo tópico: ', topic, ' -> ', message.toString())
-  process_msg(topic, message);
-})
-
-client.on('reconnect', (error) => {
-    console.log('Error al reconectar', error)
-})
-
-client.on('error', (error) => {
-    console.log('Error de conexión:', error)
-})
-
-
-
-
-
-
-
-</script>
-
 <!-- endbuild -->
 </body>
 </html>
