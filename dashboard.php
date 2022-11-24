@@ -7,8 +7,12 @@
 //  die();
 //}
 
+$isSuccess = false; 
+$crop = []; // es cultivo
+
   if (isset($_REQUEST['analyze'])) {
-    echo '<script>alert("Your analyze process")</script>';
+    $isSuccess = true;
+    $crop = ['cultivos','cultivos','cultivos'];
   }
 
 ?>
@@ -248,17 +252,20 @@
               <div class="box p-a">
                 <ul class="list-group">
                   <li class="list-group-item primary justify-content-center">CULTIVOS</li>
-                  <li class="list-group-item">Cultivo</li>
-                  <li class="list-group-item">Cultivo</li>
-                  <li class="list-group-item">Cultivo</li>
-                  <li class="list-group-item">Cultivo</li>
+                  <?php if($isSuccess) : ?>
+                    <?php foreach($crop as $key=>$value): ?>
+                      <li class="list-group-item"><?= $value; ?></li>
+                    <?php endforeach; ?>
+                  <?php else : ?>
+                      <li class="list-group-item">Aún no hay cultivos cargados</li>
+                  <?php endif; ?>
                 </ul>
               </div>
             </div>
 
             <div>
               <div class="box p-a">
-                <img src="https://media.istockphoto.com/id/1184401187/photo/internet-of-things-wireless-communication-network-abstract-image-visual.jpg?s=612x612&w=0&k=20&c=Thb4RuYqcfOHMepqOfazEhU3ZIp5J_eTerZ5GxxreOQ=" class="img-fluid" alt="Responsive image">
+                <img src="https://media.istockphoto.com/id/1184401187/photo/internet-of-things-wireless-communication-network-abstract-image-visual.jpg?s=612x612&w=0&k=20&c=Thb4RuYqcfOHMepqOfazEhU3ZIp5J_eTerZ5GxxreOQ=" class="img-fluid" alt="Imagen cultivos">
               </div>
             </div>
             
